@@ -1,22 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://Youngchen2022.github.io</id>
-    <title>csm的空间</title>
-    <updated>2023-08-31T05:21:19.339Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://Youngchen2022.github.io"/>
-    <link rel="self" href="https://Youngchen2022.github.io/atom.xml"/>
-    <subtitle>QED!</subtitle>
-    <logo>https://Youngchen2022.github.io/images/avatar.png</logo>
-    <icon>https://Youngchen2022.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2023, csm的空间</rights>
-    <entry>
-        <title type="html"><![CDATA[学习笔记——斜率优化]]></title>
-        <id>https://Youngchen2022.github.io/post/xue-xi-bi-ji-xie-lu-you-hua/</id>
-        <link href="https://Youngchen2022.github.io/post/xue-xi-bi-ji-xie-lu-you-hua/">
-        </link>
-        <updated>2023-08-31T03:40:56.000Z</updated>
-        <content type="html"><![CDATA[<p>注：文中全部图片均为手绘，不喜勿喷</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>学习笔记——斜率优化 | csm的空间</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Youngchen2022.github.io/favicon.ico?v=1693459276694">
+<link rel="stylesheet" href="https://Youngchen2022.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="注：文中全部图片均为手绘，不喜勿喷
+总论
+斜率优化是dp优化中极其常用的一种手法
+第一点，先要懂什么是凸包与单调队列
+先来看看凸多边形是什么样
+接着再是斜率及斜率优化
+一、凸包及凸多边形
+凸多边形
+就像这样
+
+这就不是
+
+即所有角都≤180..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://Youngchen2022.github.io">
+        <img src="https://Youngchen2022.github.io/images/avatar.png?v=1693459276694" class="site-logo">
+        <h1 class="site-title">csm的空间</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      QED!
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://Youngchen2022.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">学习笔记——斜率优化</h2>
+            <div class="post-date">2023-08-31</div>
+            
+            <div class="post-content" v-pre>
+              <p>注：文中全部图片均为手绘，不喜勿喷</p>
 <h1 id="总论">总论</h1>
 <p>斜率优化是dp优化中极其常用的一种手法</p>
 <p>第一点，先要懂什么是凸包与单调队列</p>
@@ -193,51 +289,75 @@
 <h3 id="与官方博文或参考文献对照可更好理解">与官方博文或参考文献对照，可更好理解</h3>
 <p>参考文献：https://www.luogu.com.cn/blog/aben-blog/xie-shuai-you-hua-dp</p>
 <p>最新消息！最近发起活动，请选出其中最小的图片，有奖竞猜！（其实就是把名字写上去）</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[博客开通了！]]></title>
-        <id>https://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/</id>
-        <link href="https://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/">
-        </link>
-        <updated>2023-08-30T05:32:00.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一级标题">一级标题</h1>
-<p>代码片<br>
-<code>happy</code></p>
-<pre><code class="language-cpp">#include&lt;&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://Youngchen2022.github.io/post/hello-gridea/</id>
-        <link href="https://Youngchen2022.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/">
+                  <h3 class="post-title">
+                    博客开通了！
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
