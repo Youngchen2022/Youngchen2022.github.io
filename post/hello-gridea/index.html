@@ -1,111 +1,116 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>Hello Gridea | csm的空间</title>
-<meta name="description" content="QED!">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Youngchen2022.github.io/favicon.ico?v=1693485970773">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://Youngchen2022.github.io/favicon.ico?v=1693486064996">
 <link rel="stylesheet" href="https://Youngchen2022.github.io/styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="👏  欢迎使用 Gridea ！
+✍️  Gridea 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...
+
+Github
+Gridea 主页
+示例网站
+特性👇
+📝  你可以使用最酷的 Markdo..." />
+    <meta name="keywords" content="Gridea" />
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://Youngchen2022.github.io">
-        <img class="avatar" src="https://Youngchen2022.github.io/images/avatar.png?v=1693485970773" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://Youngchen2022.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://Youngchen2022.github.io">
+        <img src="https://Youngchen2022.github.io/images/avatar.png?v=1693486064996" class="site-logo">
         <h1 class="site-title">csm的空间</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a class="menu purple-link" href="/" class="menu" target="_blank">
+          <a href="/" class="site-nav" target="_blank">
             首页
           </a>
         
       
         
-          <a class="menu purple-link" href="/archives" class="menu" target="_blank">
+          <a href="/archives" class="site-nav" target="_blank">
             归档
           </a>
         
       
         
-          <a class="menu purple-link" href="/tags" class="menu" target="_blank">
+          <a href="/tags" class="site-nav" target="_blank">
             标签
           </a>
         
       
         
-          <a class="menu purple-link" href="/post/about" class="menu" target="_blank">
+          <a href="/post/about" class="site-nav" target="_blank">
             关于
           </a>
         
       
         
-          <a class="menu purple-link" href="/post/friend" class="menu" target="_blank">
+          <a href="/post/friend" class="site-nav" target="_blank">
             友链
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      QED!
+    </div>
+    <div class="site-footer">
+      <a href="">I love My space!!!</a> | <a class="rss" href="https://Youngchen2022.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-            <div class="feature-container" style="background-image: url('https://Youngchen2022.github.io/post-images/hello-gridea.png')">
-            </div>
-          
-          <h2 class="post-title">Hello Gridea</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2018-12-12</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Hello Gridea</h2>
+            <div class="post-date">2018-12-12</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://Youngchen2022.github.io/tag/wNIijCBXT/">
-                    Gridea
-                    
-                  </a>
-                
-              </span>
+              <div class="feature-container" style="background-image: url('https://Youngchen2022.github.io/post-images/hello-gridea.png')">
+              </div>
             
-          </div>
-          <div class="post-content">
-            <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+            <div class="post-content" v-pre>
+              <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
 ✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 <!-- more -->
 <p><a href="https://github.com/getgridea/gridea">Github</a><br>
@@ -127,37 +132,30 @@
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://Youngchen2022.github.io/tag/wNIijCBXT/" class="tag">
+                    Gridea
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
           </div>
+
         </div>
-
-        
       </div>
-
-      
-
-      <div class="site-footer">
-  <div class="slogan">QED!</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  <a href="">I love My space!!!</a> | <a class="rss" href="https://Youngchen2022.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
 
-hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -167,6 +165,8 @@ var app = new Vue({
 })
 
 </script>
+
+
 
 
 
