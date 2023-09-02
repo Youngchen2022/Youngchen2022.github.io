@@ -1,112 +1,98 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>学习笔记——斜率优化 | csm的空间</title>
-<link rel="shortcut icon" href="https://Youngchen2022.github.io/favicon.ico?v=1693642636502">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="QED!">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Youngchen2022.github.io/favicon.ico?v=1693642683971">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Youngchen2022.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="学习笔记——斜率优化 | csm的空间 - Atom Feed" href="https://Youngchen2022.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="注：文中全部图片均为手绘，不喜勿喷
-总论
-斜率优化是dp优化中极其常用的一种手法
-第一点，先要懂什么是凸包与单调队列
-先来看看凸多边形是什么样
-接着再是斜率及斜率优化
-一、凸包及凸多边形
-凸多边形
-就像这样
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-这就不是
 
-即所有角都≤180..." />
-    <meta name="keywords" content="" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://Youngchen2022.github.io">
-  <img class="avatar" src="https://Youngchen2022.github.io/images/avatar.png?v=1693642636502" alt="">
-  </a>
-  <h1 class="site-title">
-    csm的空间
-  </h1>
-  <p class="site-description">
-    QED!
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu" target="_blank">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu" target="_blank">
-          目录
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu" target="_blank">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu" target="_blank">
-          关于
-        </a>
-      
-    
-      
-        <a href="/post/friend" class="menu" target="_blank">
-          友链
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Youngchen2022.github.io">
+        <img class="avatar" src="https://Youngchen2022.github.io/images/avatar.png?v=1693642683971" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Youngchen2022.github.io">
+        <h1 class="site-title">csm的空间</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a class="menu purple-link" href="/" class="menu" target="_blank">
+            首页
+          </a>
+        
+      
+        
+          <a class="menu purple-link" href="/archives" class="menu" target="_blank">
+            目录
+          </a>
+        
+      
+        
+          <a class="menu purple-link" href="/tags" class="menu" target="_blank">
+            标签
+          </a>
+        
+      
+        
+          <a class="menu purple-link" href="/post/about" class="menu" target="_blank">
+            关于
+          </a>
+        
+      
+        
+          <a class="menu purple-link" href="/post/friend" class="menu" target="_blank">
+            友链
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              学习笔记——斜率优化
-            </h2>
-            <div class="post-info">
-              <span>
-                2023-08-31
-              </span>
-              <span>
-                10 min read
-              </span>
-              
-            </div>
+          
+          <h2 class="post-title">学习笔记——斜率优化</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-08-31</span>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <p>注：文中全部图片均为手绘，不喜勿喷</p>
+          </div>
+          <div class="post-content">
+            <p>注：文中全部图片均为手绘，不喜勿喷</p>
 <h1 id="总论">总论</h1>
 <p>斜率优化是dp优化中极其常用的一种手法</p>
 <p>第一点，先要懂什么是凸包与单调队列</p>
@@ -284,134 +270,57 @@
 <p>参考文献：https://www.luogu.com.cn/blog/aben-blog/xie-shuai-you-hua-dp</p>
 <p>最新消息！最近发起活动，请选出其中最小的图片，有奖竞猜！（其实就是把名字写上去）</p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%E6%80%BB%E8%AE%BA">总论</a></li>
-<li><a href="#%E4%B8%80-%E5%87%B8%E5%8C%85%E5%8F%8A%E5%87%B8%E5%A4%9A%E8%BE%B9%E5%BD%A2">一、凸包及凸多边形</a>
-<ul>
-<li><a href="#%E5%87%B8%E5%A4%9A%E8%BE%B9%E5%BD%A2">凸多边形</a></li>
-<li><a href="#%E5%87%B8%E5%8C%85">凸包</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8C-%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97">二、 单调队列</a></li>
-<li><a href="#%E4%B8%89-%E6%96%9C%E7%8E%87">三、斜率</a>
-<ul>
-<li><a href="#%E4%BE%8B%E9%A2%98%E6%96%9C%E7%8E%87">例题——斜率</a>
-<ul>
-<li><a href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F">输入格式</a></li>
-<li><a href="#%E6%A0%B7%E4%BE%8B">样例</a>
-<ul>
-<li><a href="#%E8%BE%93%E5%85%A5">输入</a></li>
-<li><a href="#%E8%BE%93%E5%87%BA">输出</a></li>
-</ul>
-</li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E4%B8%8E%E6%8F%90%E7%A4%BA">数据范围与提示</a></li>
-</ul>
-</li>
-<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8C-%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96dp">二、斜率优化dp</a>
-<ul>
-<li><a href="#%E4%BE%8B%E9%A2%98sdoi2016-%E5%BE%81%E9%80%94">例题——[SDOI2016] 征途</a>
-<ul>
-<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a></li>
-<li><a href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-2">输入格式</a></li>
-<li><a href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F">输出格式</a></li>
-<li><a href="#%E6%A0%B7%E4%BE%8B-1">样例 #1</a>
-<ul>
-<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1">样例输入 #1</a></li>
-<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1">样例输出 #1</a></li>
-</ul>
-</li>
-<li><a href="#%E6%8F%90%E7%A4%BA">提示</a></li>
-</ul>
-</li>
-<li><a href="#%E6%80%9D%E8%B7%AF-2">思路</a>
-<ul>
-<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5">第一步</a></li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E6%AD%A4%E6%AD%A5%E5%8F%AF%E7%9C%81%E7%95%A5">第二步(此步可省略)</a></li>
-<li><a href="#%E7%AC%AC%E4%B8%89%E6%AD%A5">第三步</a>
-<ul>
-<li><a href="#%E6%8F%90">提</a></li>
-<li><a href="#%E6%9E%84">构</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%8E%E5%AE%98%E6%96%B9%E5%8D%9A%E6%96%87%E6%88%96%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E5%AF%B9%E7%85%A7%E5%8F%AF%E6%9B%B4%E5%A5%BD%E7%90%86%E8%A7%A3">与官方博文或参考文献对照，可更好理解</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
 
         
           <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/">
+            <a class="purple-link" href="https://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/">
               <h3 class="post-title">
-                博客开通了！
+                下一篇：博客开通了！
               </h3>
             </a>
           </div>
-        
+          
+      </div>
 
-        
+      
 
-        <div class="site-footer">
-  <a href="">I love My space!!!</a>
-  <a class="rss" href="https://Youngchen2022.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
+      <div class="site-footer">
+  <div class="slogan">QED!</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  <a href="">I love My space!!!</a> | <a class="rss" href="https://Youngchen2022.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
-      </div>
+
     </div>
+    <script type="application/javascript">
 
-    <script>
-      hljs.initHighlightingOnLoad()
+hljs.initHighlightingOnLoad()
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+</script>
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+
   </body>
 </html>
