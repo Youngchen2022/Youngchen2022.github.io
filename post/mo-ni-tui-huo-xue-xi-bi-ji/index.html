@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Youngchen2022.github.io/favicon.ico?v=1693911111933">
+<link rel="shortcut icon" href="https://Youngchen2022.github.io/favicon.ico?v=1693911269018">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Youngchen2022.github.io/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://Youngchen2022.github.io">
-        <img class="avatar" src="https://Youngchen2022.github.io/images/avatar.png?v=1693911111933" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://Youngchen2022.github.io/images/avatar.png?v=1693911269018" alt="" width="32px" height="32px">
       </a>
       <a href="https://Youngchen2022.github.io">
         <h1 class="site-title">csm的空间</h1>
@@ -90,18 +90,29 @@
           <div class="post-info post-detail-info">
             <span><i class="icon-calendar-outline"></i> 2023-09-05</span>
             
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Youngchen2022.github.io/tag/Information/">
+                    信息学
+                    
+                  </a>
+                
+              </span>
+            
           </div>
           <div class="post-content">
             <p>模拟退火算法是一种全局优化算法，常用于解决复杂的组合优化问题。下面是模拟退火算法的流程：</p>
 <ol>
 <li>初始化温度T和初始解S，可以是随机生成的解或者问题的一个启发式解。</li>
+<li>在每个温度下进行迭代，直到满足停止条件。停止条件可以是达到一定的迭代次数或者达到一定的目标函数值。</li>
+<li>在当前温度下生成一个新的候选解S’，可以使用邻域搜索、变异操作或其他搜索方法来生成。</li>
+<li>计算当前解和新解之间的能量差ΔE，这个能量差可以是目标函数值的差异或者其<br>
+他适当的度量。</li>
+<li>如果ΔE小于0，接受新解S’；否则以一定的概率接受新解S’，概率的计算遵循Metropolis准则：如果rand[0,1)小于等于exp(-ΔE/T)，则接受新解S’，否则保持当前解S不变。</li>
+<li>更新温度T，通常使用指数衰减函数进行更新，比如T = T * α，其中α为衰减系数。</li>
+<li>回到步骤3，继续下一次迭代。</li>
 </ol>
-<p>2.在每个温度下进行迭代，直到满足停止条件。停止条件可以是达到一定的迭代次数或者达到一定的目标函数值。</p>
-<p>3.在当前温度下生成一个新的候选解S’，可以使用邻域搜索、变异操作或其他搜索方法来生成。</p>
-<p>4.计算当前解和新解之间的能量差ΔE，这个能量差可以是目标函数值的差异或者其他适当的度量。</p>
-<p>5.如果ΔE小于0，接受新解S’；否则以一定的概率接受新解S’，概率的计算遵循Metropolis准则：如果rand[0,1)小于等于exp(-ΔE/T)，则接受新解S’，否则保持当前解S不变。</p>
-<p>6.更新温度T，通常使用指数衰减函数进行更新，比如T = T * α，其中α为衰减系数。</p>
-<p>7.回到步骤3，继续下一次迭代。</p>
 <p>通过上述流程，模拟退火算法会在搜索过程中逐渐降低温度，从而更有可能接受差异较大的解，并最终找到一个接近全局最优解的解。</p>
 
           </div>
