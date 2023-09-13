@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://Youngchen2022.github.io</id>
+    <id>https://Youngchen2022.github.io</id>
     <title>csm的空间</title>
-    <updated>2023-09-13T14:29:59.461Z</updated>
+    <updated>2023-09-13T14:32:00.902Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://Youngchen2022.github.io"/>
-    <link rel="self" href="http://Youngchen2022.github.io/atom.xml"/>
+    <link rel="alternate" href="https://Youngchen2022.github.io"/>
+    <link rel="self" href="https://Youngchen2022.github.io/atom.xml"/>
     <subtitle>QED!</subtitle>
-    <logo>http://Youngchen2022.github.io/images/avatar.png</logo>
-    <icon>http://Youngchen2022.github.io/favicon.ico</icon>
+    <logo>https://Youngchen2022.github.io/images/avatar.png</logo>
+    <icon>https://Youngchen2022.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, csm的空间</rights>
     <entry>
         <title type="html"><![CDATA[树上哈希]]></title>
-        <id>http://Youngchen2022.github.io/post/shu-shang-ha-xi/</id>
-        <link href="http://Youngchen2022.github.io/post/shu-shang-ha-xi/">
+        <id>https://Youngchen2022.github.io/post/shu-shang-ha-xi/</id>
+        <link href="https://Youngchen2022.github.io/post/shu-shang-ha-xi/">
         </link>
         <updated>2023-09-09T14:07:08.000Z</updated>
         <content type="html"><![CDATA[<h1 id="普通子树哈希">普通子树哈希</h1>
 <p>树上的很多东西都是转化成链上问题的，比如树上哈希<br>
 树上哈希，主要是用于树的同构这个东西上的<br>
 什么是树的同构？<br>
-<img src="http://Youngchen2022.github.io/post-images/1694269056396.png" alt="" loading="lazy"><br>
+<img src="https://Youngchen2022.github.io/post-images/1694269056396.png" alt="" loading="lazy"><br>
 如图，不考虑节点编号，三棵树是同构的</p>
 <p>将树转化成链，一般有两种方式：环游欧拉序与欧拉序<br>
 为了尽可能减少哈希冲突，进制位越小越好<br>
@@ -31,19 +31,19 @@
 <h1 id="指定范围子树哈希">指定范围子树哈希</h1>
 <p>如果说是将子树横着割一刀呢？<br>
 如图，是一棵树<br>
-<img src="http://Youngchen2022.github.io/post-images/1694269708625.png" alt="" loading="lazy"><br>
+<img src="https://Youngchen2022.github.io/post-images/1694269708625.png" alt="" loading="lazy"><br>
 <s>放心，就60个节点</s><br>
 我们考虑D节点的子树中，距离D不超过3的所有点<br>
 如图<br>
-<img src="http://Youngchen2022.github.io/post-images/1694271044079.png" alt="" loading="lazy"><br>
+<img src="https://Youngchen2022.github.io/post-images/1694271044079.png" alt="" loading="lazy"><br>
 接着是环游欧拉序（考虑在某些原因的份上，我只保留D的子树）<br>
-<img src="http://Youngchen2022.github.io/post-images/1694271481250.png" alt="" loading="lazy"><br>
+<img src="https://Youngchen2022.github.io/post-images/1694271481250.png" alt="" loading="lazy"><br>
 为什么我只写到10？<s>因为作者实在太懒</s>因为到10就够了<br>
 对于范围树上哈希，我们有两种方式——拼接与删除<br>
 因为哈希一般在取模的意义下，所以，删除是非常难以做到的~~（作者亲测过）~~<br>
 那只剩下拼接了，这个就和链上拼接一模一样了（也很像是前缀和）</p>
 <h1 id="模板题">模板题</h1>
-<p><img src="http://Youngchen2022.github.io/post-images/1694271746327.png" alt="" loading="lazy"><br>
+<p><img src="https://Youngchen2022.github.io/post-images/1694271746327.png" alt="" loading="lazy"><br>
 题目主要考的是树上哈希</p>
 <p>如果说看懂了前面的，这题就不难了。首先可以二分。因为若是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>是答案，那么一定存在两个节点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>层子树是同构的。在其中任选两个对应的点，所组成的子树的子树一定是同构的<br>
 这么说显得很烦，翻译成人化就是：对于每个符合题目要求的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>层的两个子树（就是这两个字叔同构），他们的所有子树中一定有同构的，并且层数有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>、有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>、有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⋯</mo></mrow><annotation encoding="application/x-tex">\cdots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.31em;vertical-align:0em;"></span><span class="minner">⋯</span></span></span></span>、有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
@@ -369,8 +369,8 @@ main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[模拟退火学习笔记]]></title>
-        <id>http://Youngchen2022.github.io/post/mo-ni-tui-huo-xue-xi-bi-ji/</id>
-        <link href="http://Youngchen2022.github.io/post/mo-ni-tui-huo-xue-xi-bi-ji/">
+        <id>https://Youngchen2022.github.io/post/mo-ni-tui-huo-xue-xi-bi-ji/</id>
+        <link href="https://Youngchen2022.github.io/post/mo-ni-tui-huo-xue-xi-bi-ji/">
         </link>
         <updated>2023-09-05T10:37:47.000Z</updated>
         <content type="html"><![CDATA[<p>模拟退火算法是一种全局优化算法，常用于解决复杂的组合优化问题。下面是模拟退火算法的流程：</p>
@@ -389,8 +389,8 @@ main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[学习笔记——斜率优化]]></title>
-        <id>http://Youngchen2022.github.io/post/xue-xi-bi-ji-xie-lu-you-hua/</id>
-        <link href="http://Youngchen2022.github.io/post/xue-xi-bi-ji-xie-lu-you-hua/">
+        <id>https://Youngchen2022.github.io/post/xue-xi-bi-ji-xie-lu-you-hua/</id>
+        <link href="https://Youngchen2022.github.io/post/xue-xi-bi-ji-xie-lu-you-hua/">
         </link>
         <updated>2023-08-31T03:40:56.000Z</updated>
         <content type="html"><![CDATA[<p>注：文中全部图片均为手绘，不喜勿喷</p>
@@ -574,8 +574,8 @@ main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[博客开通了！]]></title>
-        <id>http://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/</id>
-        <link href="http://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/">
+        <id>https://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/</id>
+        <link href="https://Youngchen2022.github.io/post/bo-ke-kai-tong-liao/">
         </link>
         <updated>2023-08-30T05:32:00.000Z</updated>
         <content type="html"><![CDATA[<h1 id="一级标题">一级标题</h1>
@@ -591,8 +591,8 @@ main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>http://Youngchen2022.github.io/post/hello-gridea/</id>
-        <link href="http://Youngchen2022.github.io/post/hello-gridea/">
+        <id>https://Youngchen2022.github.io/post/hello-gridea/</id>
+        <link href="https://Youngchen2022.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
