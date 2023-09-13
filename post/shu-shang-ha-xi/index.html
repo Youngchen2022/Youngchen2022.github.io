@@ -12,9 +12,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Youngchen2022.github.io/favicon.ico?v=1694525038459">
+<link rel="shortcut icon" href="http://Youngchen2022.github.io/favicon.ico?v=1694615385831">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://Youngchen2022.github.io/styles/main.css">
+<link rel="stylesheet" href="http://Youngchen2022.github.io/styles/main.css">
 
 
   
@@ -35,10 +35,10 @@
       <div class="site-header-container">
   <div class="site-header">
     <div class="left">
-      <a href="https://Youngchen2022.github.io">
-        <img class="avatar" src="https://Youngchen2022.github.io/images/avatar.png?v=1694525038459" alt="" width="32px" height="32px">
+      <a href="http://Youngchen2022.github.io">
+        <img class="avatar" src="http://Youngchen2022.github.io/images/avatar.png?v=1694615385831" alt="" width="32px" height="32px">
       </a>
-      <a href="https://Youngchen2022.github.io">
+      <a href="http://Youngchen2022.github.io">
         <h1 class="site-title">csm的空间</h1>
       </a>
     </div>
@@ -92,7 +92,7 @@
       <div class="content-container">
         <div class="post-detail">
           
-            <div class="feature-container" style="background-image: url('https://Youngchen2022.github.io/post-images/shu-shang-ha-xi.png')">
+            <div class="feature-container" style="background-image: url('http://Youngchen2022.github.io/post-images/shu-shang-ha-xi.png')">
             </div>
           
           <h2 class="post-title">树上哈希</h2>
@@ -102,7 +102,7 @@
               <span>
                 <i class="icon-pricetags-outline"></i>
                 
-                  <a href="https://Youngchen2022.github.io/tag/Information/">
+                  <a href="http://Youngchen2022.github.io/tag/Information/">
                     信息学
                     
                   </a>
@@ -115,7 +115,7 @@
 <p>树上的很多东西都是转化成链上问题的，比如树上哈希<br>
 树上哈希，主要是用于树的同构这个东西上的<br>
 什么是树的同构？<br>
-<img src="https://Youngchen2022.github.io/post-images/1694269056396.png" alt="" loading="lazy"><br>
+<img src="http://Youngchen2022.github.io/post-images/1694269056396.png" alt="" loading="lazy"><br>
 如图，不考虑节点编号，三棵树是同构的</p>
 <p>将树转化成链，一般有两种方式：环游欧拉序与欧拉序<br>
 为了尽可能减少哈希冲突，进制位越小越好<br>
@@ -126,19 +126,19 @@
 <h1 id="指定范围子树哈希">指定范围子树哈希</h1>
 <p>如果说是将子树横着割一刀呢？<br>
 如图，是一棵树<br>
-<img src="https://Youngchen2022.github.io/post-images/1694269708625.png" alt="" loading="lazy"><br>
+<img src="http://Youngchen2022.github.io/post-images/1694269708625.png" alt="" loading="lazy"><br>
 <s>放心，就60个节点</s><br>
 我们考虑D节点的子树中，距离D不超过3的所有点<br>
 如图<br>
-<img src="https://Youngchen2022.github.io/post-images/1694271044079.png" alt="" loading="lazy"><br>
+<img src="http://Youngchen2022.github.io/post-images/1694271044079.png" alt="" loading="lazy"><br>
 接着是环游欧拉序（考虑在某些原因的份上，我只保留D的子树）<br>
-<img src="https://Youngchen2022.github.io/post-images/1694271481250.png" alt="" loading="lazy"><br>
+<img src="http://Youngchen2022.github.io/post-images/1694271481250.png" alt="" loading="lazy"><br>
 为什么我只写到10？<s>因为作者实在太懒</s>因为到10就够了<br>
 对于范围树上哈希，我们有两种方式——拼接与删除<br>
 因为哈希一般在取模的意义下，所以，删除是非常难以做到的~~（作者亲测过）~~<br>
 那只剩下拼接了，这个就和链上拼接一模一样了（也很像是前缀和）</p>
 <h1 id="模板题">模板题</h1>
-<p><img src="https://Youngchen2022.github.io/post-images/1694271746327.png" alt="" loading="lazy"><br>
+<p><img src="http://Youngchen2022.github.io/post-images/1694271746327.png" alt="" loading="lazy"><br>
 题目主要考的是树上哈希</p>
 <p>如果说看懂了前面的，这题就不难了。首先可以二分。因为若是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>是答案，那么一定存在两个节点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>层子树是同构的。在其中任选两个对应的点，所组成的子树的子树一定是同构的<br>
 这么说显得很烦，翻译成人化就是：对于每个符合题目要求的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>层的两个子树（就是这两个字叔同构），他们的所有子树中一定有同构的，并且层数有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>、有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>、有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⋯</mo></mrow><annotation encoding="application/x-tex">\cdots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.31em;vertical-align:0em;"></span><span class="minner">⋯</span></span></span></span>、有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></p>
@@ -466,7 +466,7 @@ main() {
 
         
           <div class="next-post">
-            <a class="purple-link" href="https://Youngchen2022.github.io/post/mo-ni-tui-huo-xue-xi-bi-ji/">
+            <a class="purple-link" href="http://Youngchen2022.github.io/post/mo-ni-tui-huo-xue-xi-bi-ji/">
               <h3 class="post-title">
                 下一篇：模拟退火学习笔记
               </h3>
@@ -498,7 +498,7 @@ main() {
       
     
   </div>
-  <a href="">I love My space!!!</a> | <a class="rss" href="https://Youngchen2022.github.io/atom.xml" target="_blank">RSS</a>
+  <a href="">I love My space!!!</a> | <a class="rss" href="http://Youngchen2022.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
 
