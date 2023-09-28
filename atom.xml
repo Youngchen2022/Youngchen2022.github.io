@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Youngchen2022.github.io</id>
     <title>csm的空间</title>
-    <updated>2023-09-26T13:17:51.220Z</updated>
+    <updated>2023-09-28T15:17:09.082Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Youngchen2022.github.io"/>
     <link rel="self" href="https://Youngchen2022.github.io/atom.xml"/>
@@ -10,6 +10,332 @@
     <logo>https://Youngchen2022.github.io/images/avatar.png</logo>
     <icon>https://Youngchen2022.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, csm的空间</rights>
+    <entry>
+        <title type="html"><![CDATA[学习笔记——BSGS]]></title>
+        <id>https://Youngchen2022.github.io/xue-xi-bi-ji-bsgs/</id>
+        <link href="https://Youngchen2022.github.io/xue-xi-bi-ji-bsgs/">
+        </link>
+        <updated>2023-09-28T14:41:17.000Z</updated>
+        <content type="html"><![CDATA[<p>众所周知，北上广深是中国非常一线的城市，北京是首都，地处……</p>
+<h3 id="正片开始">正片开始！</h3>
+<h1 id="一-bsgs基础算法">一、BSGS基础算法</h1>
+<p>实现目标：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>A</mi><mi>x</mi></msup><mo>≡</mo><mi>B</mi><mo>(</mo><mspace></mspace><mspace width="0.6666666666666666em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mi>P</mi><mo>)</mo><mo separator="true">,</mo><mo>(</mo><mi>gcd</mi><mo>⁡</mo><mo>(</mo><mi>P</mi><mo separator="true">,</mo><mi>A</mi><mo>)</mo><mo>=</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">A^x\equiv B(\mod P),(\gcd(P,A)=1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mopen">(</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:0.6666666666666666em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mop"><span style="margin-right:0.01389em;">g</span>cd</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>求最小的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span><br>
+很明显，如果暴力枚举，时间是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>P</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span>的，只要题目数据范围大，就死定了。愿意的人欢迎尝试（无100警告）<br>
+于是，考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext> </mtext></mrow><annotation encoding="application/x-tex">~</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace nobreak"> </span></span></span></span><s>莫队</s><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>                </mtext></mrow><annotation encoding="application/x-tex">~~~~~~~~~~~~~~~~</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span></span></span></span><s>分块</s><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>                </mtext></mrow><annotation encoding="application/x-tex">~~~~~~~~~~~~~~~~</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span></span></span></span>BSGS<br>
+为什么我要提前两个？<br>
+<strong>因为BSGS本质就是分块！</strong><br>
+简单讲解一下，就是将本来<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>种情况，平均分成了$\sqrt p $份，对每份内进行预处理<br>
+不直观？好，那就用直观的式子吧！</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">令</mtext><mi>x</mi><mo>=</mo><mi>k</mi><msqrt><mi>p</mi></msqrt><mo>−</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">\texttt{令}x=k\sqrt p-t
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt cjk_fallback">令</span></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.28806499999999996em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.751935em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">p</span></span><span style="top:-2.711935em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.28806499999999996em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">即</mtext><msup><mi>A</mi><mrow><mi>k</mi><msqrt><mi>p</mi></msqrt></mrow></msup><mo>≡</mo><msup><mi>A</mi><mi>t</mi></msup><mi>B</mi><mo>(</mo><mspace></mspace><mspace width="1em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mi>p</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\texttt{即}A^{k\sqrt p}\equiv A^tB (\mod p)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9090795em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt cjk_fallback">即</span></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9090795em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.708685em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault mtight" style="padding-left:0.833em;">p</span></span><span style="top:-2.668685em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.33131499999999997em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.093556em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.843556em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mopen">(</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mclose">)</span></span></span></span></span></p>
+<p>于是，找个哈希表维护一下后面的即可</p>
+<pre><code class="language-cpp">IO::pin&gt;&gt;y&gt;&gt;z&gt;&gt;p;
+gp_hash_table&lt;int,int&gt; ht;
+int f,s;
+bool flg;
+ht.clear();
+f=ceil(sqrt(p));
+s=1;
+flg=1;
+for(int i=1; i&lt;=f; i++)
+    s=1ll*s*y%p,ht[1ll*z*s%p]=i;
+for(int j=1,k=s; j&lt;=f; j++) {
+	if(ht[k]&amp;&amp;flg) {
+    	wt(((1ll*j*f-ht[k])%p+p)%p,'\n');
+    	flg=0;
+	}
+			
+	k=(1ll*s*k)%p;
+	}
+	if(flg)
+		puts(&quot;Orz, I cannot find x!&quot;);
+</code></pre>
+<p>附赠模板代码</p>
+<pre><code class="language-cpp">#pragma GCC optimize(1,&quot;inline&quot;,&quot;Ofast&quot;)
+#pragma GCC optimize(2,&quot;inline&quot;,&quot;Ofast&quot;)
+#pragma GCC optimize(3,&quot;inline&quot;,&quot;Ofast&quot;)
+#include&lt;bits/stdc++.h&gt;
+#include&lt;bits/extc++.h&gt;
+using namespace std;
+using namespace __gnu_cxx;
+using namespace __gnu_pbds;
+namespace IO {
+	class input {
+	private:
+		bool isdigit(char c) {
+			return ('0'&lt;=c&amp;&amp;c&lt;='9');
+		}
+	public:
+		input operator&gt;&gt;(int &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(short &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(bool &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(long &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(long long &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(__int128 &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(unsigned int &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(unsigned short &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(unsigned long &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(unsigned long long &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(unsigned __int128 &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=(x&lt;&lt;1)+(x&lt;&lt;3)+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			return *this;
+		}
+		input operator&gt;&gt;(double &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=x*10+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			if(!isdigit(c))
+				if(c!='.')
+					return *this;
+			double z=1;
+			while(isdigit(c))
+				z/=10.,x=x+z*(c^48),getchar();
+			return *this;
+		}
+		input operator&gt;&gt;(long double &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=x*10+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			if(!isdigit(c))
+				if(c!='.')
+					return *this;
+			double z=1;
+			while(isdigit(c))
+				z/=10.,x=x+z*(c^48),c=getchar();
+			return *this;
+		}
+		input operator&gt;&gt;(float &amp;x) {
+			x=0;
+			bool y=1;
+			char c=getchar();
+			while(!isdigit(c))
+				y&amp;=(c!='-'),c=getchar();
+			while(isdigit(c))
+				x=x*10+(c^48),c=getchar();
+			if(!y)
+				x=-x;
+			if(!isdigit(c))
+				if(c!='.')
+					return *this;
+			double z=1;
+			while(isdigit(c))
+				z/=10.,x=x+z*(c^48),c=getchar();
+			return *this;
+		}
+		input operator&gt;&gt;(std::string &amp;x) {
+			char c=getchar();
+			x.clear();
+			while(!(c!=' '&amp;&amp;c!='\n'&amp;&amp;c!='	'&amp;&amp;c!=EOF&amp;&amp;c))
+				c=getchar();
+			while(c!=' '&amp;&amp;c!='\n'&amp;&amp;c!='	'&amp;&amp;c!=EOF&amp;&amp;c) {
+				x.push_back(c);
+				c=getchar();
+			}
+			return *this;
+		}
+		input operator&gt;&gt;(char *x) {
+			char c=getchar();
+			int cnt=0;
+			while(!(c!=' '&amp;&amp;c!='\n'&amp;&amp;c!='	'&amp;&amp;c!=EOF&amp;&amp;c))
+				c=getchar();
+			while(c!=' '&amp;&amp;c!='\n'&amp;&amp;c!='	'&amp;&amp;c!=EOF&amp;&amp;c) {
+				x[cnt++]=c;
+				c=getchar();
+			}
+			return *this;
+		}
+		input operator&gt;&gt;(char x) {
+			x=getchar();
+			return *this;
+		}
+	} pin;
+};
+inline void wt(char ch) {
+	putchar(ch);
+}
+template&lt;class T&gt;
+inline void wt(T x) {
+	static char ch[40];
+	int p=0;
+	if(x&lt;0)
+		putchar('-'),x=-x;
+	do
+		ch[++p]=(x%10)^48,x/=10;
+	while(x);
+	while(p)
+		putchar(ch[p--]);
+}
+template&lt;class T,class... U&gt;
+inline void wt(T x,U ...t) {
+	wt(x),
+	wt(t...);
+}
+#define int long long
+#define rep(i,a,b) for(int i=a,i##end=b;i&lt;=i##end;i++)
+#define frep(i,a,b) for(int i=a,i##end=b;i&gt;=i##end;i--)
+#define lqrep(i,a,v) for(int i=hd[a],v=e[i].v;i&gt;=i##end;i=e[i].nxt,v=e[i].v)
+const int N=1e5+7;
+main() {
+}
+//目前快速输出pout还未搞定哦
+</code></pre>
+<p>到此就结束了吗？</p>
+<h3 id="当然不是">当然不是！！！！！！！！！！</h3>
+<p>如果没有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo>(</mo><mi>P</mi><mo separator="true">,</mo><mi>A</mi><mo>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\gcd(P,A)=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span style="margin-right:0.01389em;">g</span>cd</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的话，前面的一切都成了一纸空文<br>
+那该如何？<br>
+如果不需要的旅客们可以摆烂了，以下是扩展板<br>
+不妨设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo>(</mo><mi>P</mi><mo separator="true">,</mo><mi>A</mi><mo>)</mo><mo>=</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">\gcd(P,A)=d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span style="margin-right:0.01389em;">g</span>cd</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>A</mi><mi>x</mi></msup><mo>≡</mo><mi>B</mi><mo>(</mo><mspace></mspace><mspace width="1em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mi>P</mi><mo>)</mo><mo>−</mo><mo>&gt;</mo><mspace linebreak="newline"></mspace><mo>(</mo><msup><mi>A</mi><mo mathvariant="normal">′</mo></msup><mo>×</mo><mi>d</mi><msup><mo>)</mo><mi>x</mi></msup><mo>≡</mo><msup><mi>B</mi><mo mathvariant="normal">′</mo></msup><mo>×</mo><mi>d</mi><mo>(</mo><mspace></mspace><mspace width="1em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mi>P</mi><mo>)</mo><mo>−</mo><mo>&gt;</mo><mspace linebreak="newline"></mspace><mo>(</mo><msup><mi>A</mi><mo mathvariant="normal">′</mo></msup><mo>×</mo><mi>d</mi><msup><mo>)</mo><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>≡</mo><msup><mi>B</mi><mo mathvariant="normal">′</mo></msup><mo>∗</mo><msup><mi>A</mi><mrow><mo mathvariant="normal">′</mo><mrow><mo>−</mo><mn>1</mn></mrow></mrow></msup><mo>(</mo><mspace></mspace><mspace width="1em"/><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mtext> </mtext><mi>P</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">A^x\equiv B(\mod P)-&gt;\\(A&#x27;\times d)^x\equiv B&#x27;\times d(\mod P)-&gt;\\(A&#x27;\times d)^{x-1}\equiv B&#x27;*A&#x27;^{-1}(\mod P)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7143919999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mopen">(</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mclose">)</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:1.051892em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.801892em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8852220000000001em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.801892em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mopen">(</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mclose">)</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:1.051892em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.801892em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.864108em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.801892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.801892em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.864108em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span></span></p>
+<p>接着按上文求解即可</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[树上哈希]]></title>
         <id>https://Youngchen2022.github.io/shu-shang-ha-xi/</id>
