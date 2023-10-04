@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Youngchen2022.github.io</id>
     <title>csm的空间</title>
-    <updated>2023-10-03T13:29:26.606Z</updated>
+    <updated>2023-10-04T07:52:22.244Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Youngchen2022.github.io"/>
     <link rel="self" href="https://Youngchen2022.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://Youngchen2022.github.io/images/avatar.png</logo>
     <icon>https://Youngchen2022.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, csm的空间</rights>
+    <entry>
+        <title type="html"><![CDATA[再见了，搜狗]]></title>
+        <id>https://Youngchen2022.github.io/zai-jian-liao-sou-gou/</id>
+        <link href="https://Youngchen2022.github.io/zai-jian-liao-sou-gou/">
+        </link>
+        <updated>2023-10-04T07:48:17.000Z</updated>
+        <content type="html"><![CDATA[<p>搜狗输入法是我长久以来使用的。换了新电脑，发现没有搜狗，就下了一个。<br>
+结果发现已经大不如从前，不常用的词语（甚至不存在）放在第一位，常用词语翻几页。微软也没这么难用啊。<br>
+其他的东西也懈怠不前。更新不如说是缩小了脑容量——简直只能说Lj。于是，我加入了百度的阵营。<br>
+百度输入法比搜狗好不知道多少倍，唯一的一点就是似乎不维护了，但比Lj的搜狗好不知多少倍了。<br>
+再见了，搜狗。我希望百度能够持续发展！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[学习笔记——BSGS]]></title>
         <id>https://Youngchen2022.github.io/xue-xi-bi-ji-bsgs/</id>
