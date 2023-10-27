@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Youngchen2022.github.io</id>
     <title>csm的空间</title>
-    <updated>2023-10-16T11:12:11.471Z</updated>
+    <updated>2023-10-27T13:51:42.398Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Youngchen2022.github.io"/>
     <link rel="self" href="https://Youngchen2022.github.io/atom.xml"/>
@@ -10,6 +10,49 @@
     <logo>https://Youngchen2022.github.io/images/avatar.png</logo>
     <icon>https://Youngchen2022.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, csm的空间</rights>
+    <entry>
+        <title type="html"><![CDATA[CSP游记]]></title>
+        <id>https://Youngchen2022.github.io/csp-you-ji/</id>
+        <link href="https://Youngchen2022.github.io/csp-you-ji/">
+        </link>
+        <updated>2023-10-27T13:03:09.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="总起">总起</h1>
+<p>总起学了两年，CSP却从未考过一次。2022，为冲J组200而奋斗。而今年，是第一次信奥生死考。</p>
+<h1 id="101-1020">10/1-10/20</h1>
+<p>这段时间我过的有些憋屈，成天打模拟赛，越来越累，模拟赛成绩也越来约不理想，在班级里也常被扣分。后来我想了想，在赛前几天就辞去了班委。真没想到，这招让我恢复了气血，也回复到了小学那种无忧无虑的感觉。<br>
+10/20是运动会，但我没去参加，早早备赛。</p>
+<h1 id="1021">10/21</h1>
+<p>决定生死的日子。<br>
+这一天，我怀着平静的心态去面对考试——心态已经几乎在之前崩溃了。去华二本部的路上，我吃了几个包子。<br>
+CSP-J开局了<br>
+前两题很简单，搞定大样例之后，才过去了不到30分钟。<br>
+第三题是个大模拟。不过我在考场上发挥超常，在30分钟内调过了大样例。<br>
+此时已经吃完了两包巧克力，没吃的了。<br>
+后面T4干不出来，开始有些摆烂了。<br>
+最后写了个25分代码<br>
+预估分数（最高）：100+100+100+25=325<br>
+预估成绩（最低）：100+100+100+0=300</p>
+<p>在CSP-J毫无悬念地结束之后，我去问了一下同学们，yz预估AK了(Orz)，syl预估也AK了，wxy我不清楚，估计也比我高，秋班的两个同学zzy340，lyxAK😖</p>
+<p>中午休息了一下，补给了点吃的，妈妈鼓励了下我，让我S加油</p>
+<p>CSP-S要开局了<br>
+这个机房里似乎都很巨，而我也很蒟。jg、xyf、clp，这些都完全是我仰慕的对象，我不知为何和他们分到一起去了。旁边是巨佬xyf，他带了好多吃的，像来野餐似的<br>
+开局了<br>
+第一题是签到题，结果我和xyf（后来得知）都不出意外地意外地调了1个小时，其实只是个四层循环罢了<br>
+第二题是一道KMP题，我会KMP，但没看出怎么用，写了个区间dp，拿了35，此时还剩下两个半小时<br>
+调整了30分钟的心态，我开搞T3<br>
+第三题是一道大模拟。本来被吓住了，后来硬着头皮冲上去，开了5棵红黑树，三棵红黑树套红黑树，三个string，简称不要命。反正该错的都得错，硬着头皮试一试呗。<br>
+我是一个一个调的，调完op=1，再试op=2，再试op=3，最后试op=4，好容易过了样例，然后调了会儿大样例，竟然过去了！！！<br>
+剩下一个小时，我几乎开摆了——反正脑子也基本生锈转不动了，手也僵住不想敲代码了，那就放弃T4吧——反正200基本稳了。<br>
+预估成绩（最高）：100+50+100+0=250<br>
+预估成绩（最低）：100+35+0+0=135</p>
+<p>回到家之后，听说J组出来了，洛谷上305，小图灵上300。于卓确实AK了，其它人都比我高，有些不爽。<br>
+等了5个小时的S组，结果只出来前两题，没有悬念，100+35=135。后来实在等不到T3出来了，就去睡觉了</p>
+<h1 id="1022">10/22</h1>
+<p>听说洛谷上出成绩了，一看是235，欣喜若狂——这是我去年J组做梦都想拿到的成绩！赶了一段时间作业之后，小图灵也出来了，215，中高混排第67名，NOIP都可以进了。那就稳了，终于可以安心搞学业了</p>
+<h1 id="之后">之后</h1>
+<p>现在在班上待的还不错，也没有怎么牵挂CSP了。NOIP可能不是我所能驾驭的，还是先备战期中吧。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[再见了，搜狗]]></title>
         <id>https://Youngchen2022.github.io/zai-jian-liao-sou-gou/</id>
